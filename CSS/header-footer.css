@@ -1,0 +1,172 @@
+
+/* ========================================
+   1. CABEÇALHO — HEADER
+======================================== */
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--spacing-medium);
+
+    padding: var(--spacing-medium) var(--spacing-48);
+
+    background-color: var(--color-primary);
+    color: var(--color-white);
+
+    box-shadow: var(--shadow-medium);
+}
+
+/* Nome da ONG */
+
+header h3 {
+    margin: 0;
+
+    font-family: var(--font-title);
+    font-size: var(--font-size-subtitle);
+    font-weight: var(--font-weight-bold);
+    line-height: var(--line-height-title);
+
+    white-space: nowrap;
+}
+
+/* ========================================
+   2. NAVEGAÇÃO
+======================================== */
+
+header nav {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    gap: var(--spacing-24);
+}
+
+header nav a {
+    position: relative;
+
+    padding: var(--spacing-small) 0;
+
+    color: var(--color-white);
+    font-family: var(--font-text);
+    font-size: var(--font-size-medium);
+    font-weight: var(--font-weight-medium);
+
+    text-decoration: none;
+
+    transition:
+        color var(--transition-normal),
+        opacity var(--transition-normal);
+}
+
+/* Linha decorativa ao passar o mouse */
+
+header nav a::after {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    height: 2px;
+
+    background-color: var(--color-secondary);
+
+    content: "";
+    transform: scaleX(0);
+    transform-origin: left;
+
+    transition: transform var(--transition-normal);
+}
+
+header nav a:hover {
+    color: var(--color-secondary);
+}
+
+header nav a:hover::after {
+    transform: scaleX(1);
+}
+
+/* Acessibilidade: navegação pelo teclado */
+
+header nav a:focus-visible {
+    outline: 2px solid var(--color-secondary);
+    outline-offset: 5px;
+    border-radius: var(--radius-small);
+}
+
+/* ========================================
+   3. RODAPÉ — FOOTER
+======================================== */
+
+footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: var(--spacing-large) var(--container-padding);
+
+    background-color: var(--color-text);
+    color: var(--color-white);
+
+    text-align: center;
+}
+
+footer p {
+    max-width: var(--container-max-width);
+    margin: 0;
+
+    font-family: var(--font-text);
+    font-size: var(--font-size-small);
+    font-weight: var(--font-weight-regular);
+    line-height: var(--line-height-text);
+}
+
+/* ========================================
+   4. RESPONSIVIDADE
+======================================== */
+
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        justify-content: center;
+        gap: var(--spacing-medium);
+
+        padding: var(--spacing-24);
+    }
+
+    header h3 {
+        font-size: var(--font-size-large);
+        text-align: center;
+    }
+
+    header nav {
+        justify-content: center;
+        gap: var(--spacing-medium);
+    }
+
+    footer {
+        padding: var(--spacing-24) var(--spacing-medium);
+    }
+}
+
+@media (max-width: 400px) {
+    header nav {
+        column-gap: var(--spacing-medium);
+        row-gap: var(--spacing-small);
+    }
+
+    header nav a {
+        font-size: var(--font-size-small);
+    }
+}
+
+/* ========================================
+   5. MOVIMENTO REDUZIDO
+======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+    header nav a,
+    header nav a::after {
+        transition: none;
+    }
+}
