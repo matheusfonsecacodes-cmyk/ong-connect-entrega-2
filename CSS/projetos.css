@@ -619,17 +619,6 @@ section figure:hover figcaption {
     box-shadow: none;
 }
 
-/* GRID DE 12 COLUNAS */
-
-section.grid-12 {
-    display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 32px;
-}
-
-section.grid-12 article {
-    grid-column: auto;
-}
 
 /* ORGANIZAÇÃO DO CONTEÚDO DOS CARDS */
 .grid-12 article h3 {
