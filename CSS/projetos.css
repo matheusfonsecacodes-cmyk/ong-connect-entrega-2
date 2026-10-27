@@ -1,0 +1,790 @@
+/* =========================
+   PÁGINA DE PROJETOS
+   ========================= */
+
+/* Compatibilidade com o CSS antigo usando o Design System do Trabalho 2 */
+:root {
+    --espaco-pequeno: var(--spacing-small);
+    --espaco-medio: var(--spacing-medium);
+    --espaco-grande: var(--spacing-large);
+    --espaco-secao: var(--spacing-section);
+
+    --raio-pequeno: var(--radius-small);
+    --raio-medio: var(--radius-medium);
+
+    --verde-escuro: var(--color-primary);
+    --verde: var(--color-accent);
+    --verde-claro: var(--color-secondary);
+
+    --branco: var(--color-white);
+    --bege: var(--color-background);
+
+    --texto-secundario: var(--color-text-muted);
+    --titulos-fonte: var(--font-title);
+}
+
+main {
+    padding: var(--espaco-secao) 0;
+}
+
+/* SEÇÕES */
+
+main > section {
+    width: 90%;
+    margin: 0 auto var(--espaco-secao);
+    padding: 2rem;
+}
+
+/* TÍTULOS */
+
+main h1,
+main h2,
+main h3 {
+    font-family: var(--titulos-fonte);
+    color: var(--verde-escuro);
+}
+
+main h1 {
+    font-size: 3.2rem;
+    margin-bottom: var(--espaco-medio);
+    text-align: center;
+}
+
+main h2 {
+    font-size: 2rem;
+    margin-bottom: var(--espaco-medio);
+    text-align: center;
+}
+
+main h3 {
+    font-size: 1.5rem;
+    margin-bottom: var(--espaco-pequeno);
+}
+
+/* TEXTOS */
+
+main p {
+    line-height: 1.6;
+    color: var(--texto-secundario);
+}
+
+/* =========================
+   PROJETOS
+   ========================= */
+
+section:has(article) {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--espaco-grande);
+}
+
+section.grid-12 {
+    grid-template-columns: repeat(12, 1fr);
+}
+
+section:has(article) h2 {
+    grid-column: 1 / -1;
+}
+
+section article {
+    display: flex;
+    flex-direction: column;
+
+    padding: 2.4rem;
+
+    background-color: var(--branco);
+    border: 1px solid var(--verde-claro);
+    border-radius: var(--raio-medio);
+
+    box-shadow: var(--shadow-medium);
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.grid-12 article {
+    grid-column: span 3;
+    padding: 20px;
+    font-size: 0.9rem;
+}
+
+.grid-12 article p {
+    margin-bottom: 10px;
+    line-height: 1.4;
+}
+
+section article:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-large);
+}
+
+section article h3 {
+    margin-bottom: var(--espaco-medio);
+    font-size: 2.2rem;
+    color: var(--verde-escuro);
+}
+
+section article p {
+    color: var(--texto-secundario);
+    margin-bottom: var(--espaco-medio);
+}
+
+section article p:first-of-type {
+    display: inline-block;
+    width: fit-content;
+
+    padding: 0.4rem 1rem;
+
+    background-color: var(--verde-claro);
+    color: var(--verde-escuro);
+
+    border-radius: var(--radius-pill);
+
+    font-size: 1.4rem;
+    font-weight: bold;
+}
+
+section article strong {
+    color: var(--verde-escuro);
+}
+/* =========================
+   LISTAS
+   ========================= */
+
+section ul {
+    padding-left: 1.5rem;
+    line-height: 1.8;
+}
+
+section ul li {
+    margin-bottom: var(--espaco-pequeno);
+    color: var(--texto-secundario);
+}
+
+/* =========================
+   BOTÕES
+   ========================= */
+
+section a {
+    display: block;
+    width: 50%;
+    margin: var(--espaco-medio) auto 0;
+    padding: 1.2rem 2rem;
+
+    background-color: var(--verde-escuro);
+    color: var(--branco);
+
+    border: 2px solid var(--verde-escuro);
+    border-radius: var(--raio-medio);
+
+    font-family: var(--titulos-fonte);
+    font-size: 1.6rem;
+    font-weight: bold;
+
+    text-align: center;
+    text-decoration: none;
+
+    cursor: pointer;
+
+    transition:
+        background-color 0.2s ease,
+        color 0.2s ease,
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+/* HOVER */
+
+section a:hover {
+    background-color: var(--verde);
+    border-color: var(--verde);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-medium);
+}
+
+/* FOCUS */
+
+section a:focus-visible {
+    outline: 3px solid var(--verde-claro);
+    outline-offset: 3px;
+}
+
+/* ACTIVE */
+
+section a:active {
+    transform: translateY(1px);
+    box-shadow: none;
+}
+
+/* DISABLED */
+
+section button:disabled {
+    display: block;
+    width: 50%;
+    margin: var(--espaco-medio) auto 0;
+    padding: 1.2rem 2rem;
+
+    background-color: var(--color-border);
+    color: var(--color-text-muted);
+
+    border: 2px solid var(--color-border);
+    border-radius: var(--raio-medio);
+
+    font-family: var(--titulos-fonte);
+    font-size: 1.6rem;
+    font-weight: bold;
+
+    text-align: center;
+
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+/* =========================
+   DOAÇÕES
+   ========================= */
+
+#doacoes {
+    background-color: var(--bege);
+    border-radius: var(--raio-medio);
+}
+
+#doacoes ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+#doacoes li {
+    padding: var(--espaco-pequeno);
+    margin-bottom: var(--espaco-pequeno);
+
+    background-color: var(--branco);
+    border-radius: var(--raio-pequeno);
+}
+
+/* =========================
+   GALERIA
+   ========================= */
+
+section:has(figure) {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--espaco-grande);
+}
+
+section:has(figure) h2 {
+    grid-column: 1 / -1;
+}
+
+section figure {
+    margin: 0;
+}
+
+section figure img {
+    display: block;
+    width: 100%;
+    height: 250px;
+
+    object-fit: contain;
+
+    border-radius: var(--raio-medio);
+}
+
+section figcaption {
+    margin-top: 10px;
+    padding: 10px;
+
+    background-color: var(--bege);
+    border-radius: var(--raio-pequeno);
+
+    text-align: center;
+    line-height: 1.4;
+
+    color: var(--verde-escuro);
+    font-family: var(--titulos-fonte);
+    font-weight: bold;
+
+    transition: transform 0.2s ease;
+}
+
+section figure:hover figcaption {
+    transform: translateY(-2px);
+}
+
+/* =========================
+   RESPONSIVIDADE
+   ========================= */
+
+/* Telas grandes */
+
+@media (max-width: 1200px) {
+
+    main > section {
+        width: 85%;
+    }
+
+}
+
+/* Laptops e tablets grandes */
+
+@media (max-width: 992px) {
+
+    main > section {
+        width: 90%;
+    }
+
+    section:has(article):not(.grid-12) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    section:has(figure) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+/* Tablets */
+
+@media (max-width: 768px) {
+
+    main {
+        padding: var(--espaco-secao) 0;
+    }
+
+    main > section {
+        width: 90%;
+        padding: 1rem;
+    }
+
+    main h1 {
+        font-size: 2.4rem;
+    }
+
+    section:has(article):not(.grid-12) {
+        grid-template-columns: 1fr;
+    }
+
+    .grid-12 {
+        grid-template-columns: 1fr;
+    }
+
+    .grid-12 article {
+        grid-column: span 1;
+    }
+
+    section:has(figure) {
+        grid-template-columns: 1fr;
+    }
+
+    section a,
+    section button:disabled {
+        width: 80%;
+    }
+
+}
+
+/* Celulares */
+
+@media (max-width: 576px) {
+
+    main > section {
+        width: 94%;
+    }
+
+    main h1 {
+        font-size: 2.2rem;
+    }
+
+    main h2 {
+        font-size: 1.8rem;
+    }
+
+    section article {
+        padding: 1.8rem;
+    }
+
+    section a,
+    section button:disabled {
+        width: 90%;
+    }
+
+}
+
+/* Celulares pequenos */
+
+@media (max-width: 400px) {
+
+    main > section {
+        width: 96%;
+        padding: 0.8rem;
+    }
+
+    main h1 {
+        font-size: 2rem;
+    }
+
+    main h2 {
+        font-size: 1.7rem;
+    }
+
+    section article {
+        padding: 1.5rem;
+    }
+
+    section a,
+    section button:disabled {
+        width: 100%;
+    }
+
+}
+
+/* =========================
+   ALERTAS
+   ========================= */
+
+.alerta {
+    width: 100%;
+    margin-top: var(--espaco-medio);
+    padding: 1.2rem 1.6rem;
+
+    background-color: var(--bege);
+    color: var(--verde-escuro);
+
+    border-left: 5px solid var(--verde);
+    border-radius: var(--raio-pequeno);
+
+    font-size: 1.4rem;
+    font-weight: bold;
+}
+
+/* =========================
+   TOAST
+   ========================= */
+
+.toast {
+    position: fixed;
+    right: 2rem;
+    bottom: 2rem;
+
+    padding: 1.4rem 2rem;
+
+    background-color: var(--verde-escuro);
+    color: var(--branco);
+
+    border-radius: var(--raio-medio);
+
+    font-size: 1.4rem;
+    font-weight: bold;
+
+    box-shadow: var(--shadow-medium);
+
+    z-index: 2000;
+
+    opacity: 0;
+    visibility: hidden;
+
+    transition:
+        opacity 0.3s ease,
+        visibility 0.3s ease;
+}
+
+.toast.ativo {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* =========================
+   MODAL
+   ========================= */
+
+.modal {
+    position: fixed;
+    inset: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: rgb(0 0 0 / 55%);
+
+    opacity: 0;
+    visibility: hidden;
+
+    transition:
+        opacity 0.3s ease,
+        visibility 0.3s ease;
+
+    z-index: 3000;
+}
+
+.modal.ativo {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-conteudo {
+    position: relative;
+
+    width: 90%;
+    max-width: 500px;
+
+    padding: 3rem;
+
+    background-color: var(--branco);
+    border-radius: var(--raio-medio);
+
+    box-shadow: var(--shadow-large);
+
+    text-align: center;
+}
+
+.modal-conteudo h2 {
+    margin-bottom: var(--espaco-medio);
+    color: var(--verde-escuro);
+}
+
+.modal-conteudo p {
+    margin-bottom: var(--espaco-medio);
+    color: var(--texto-secundario);
+}
+
+.modal-fechar {
+    position: absolute;
+    top: 1rem;
+    right: 1.5rem;
+
+    border: none;
+    background: none;
+
+    font-size: 2.5rem;
+    color: var(--texto-secundario);
+
+    cursor: pointer;
+}
+
+.modal-fechar:hover {
+    color: var(--verde-escuro);
+}
+
+/* =========================
+   BOTÃO DO MODAL
+   ========================= */
+
+.modal-conteudo a {
+    display: block;
+    width: 80%;
+    margin: var(--espaco-medio) auto 0;
+    padding: 1.2rem 2rem;
+
+    background-color: var(--verde-escuro);
+    color: var(--branco);
+
+    border: 2px solid var(--verde-escuro);
+    border-radius: var(--raio-medio);
+
+    font-family: var(--titulos-fonte);
+    font-size: 1.6rem;
+    font-weight: bold;
+
+    text-align: center;
+    text-decoration: none;
+
+    cursor: pointer;
+
+    transition:
+        background-color 0.2s ease,
+        color 0.2s ease,
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.modal-conteudo a:hover {
+    background-color: var(--verde);
+    border-color: var(--verde);
+    color: var(--branco);
+
+    transform: translateY(-2px);
+
+    box-shadow: var(--shadow-medium);
+}
+
+.modal-conteudo a:focus-visible {
+    outline: 3px solid var(--verde-claro);
+    outline-offset: 3px;
+}
+
+.modal-conteudo a:active {
+    transform: translateY(1px);
+    box-shadow: none;
+}
+
+
+/* ORGANIZAÇÃO DO CONTEÚDO DOS CARDS */
+.grid-12 article h3 {
+    font-size: 1.25rem;
+    line-height: 1.2;
+    margin-bottom: 14px;
+}
+
+.grid-12 article p {
+    font-size: 0.9rem;
+    line-height: 1.45;
+    margin-bottom: 12px;
+}
+
+.grid-12 article p:first-of-type {
+    align-self: flex-start;
+    background: var(--color-secondary);
+    color: var(--color-primary);
+    font-weight: 700;
+    font-size: 0.8rem;
+    padding: 5px 9px;
+    border-radius: var(--radius-pill);
+    margin-bottom: 14px;
+    white-space: nowrap;
+}
+
+/* ========================================
+   RODAPÉ DA PÁGINA DE PROJETOS
+======================================== */
+
+main footer {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-medium);
+
+    width: 100%;
+    box-sizing: border-box;
+    margin: var(--spacing-section) 0 var(--spacing-large);
+    padding: var(--spacing-48) var(--container-padding);
+
+    background-color: var(--color-text);
+    color: var(--color-white);
+
+    text-align: center;
+    border-radius: var(--radius-large);
+    box-shadow: var(--shadow-medium);
+}
+
+/* Título */
+
+main footer h2 {
+    flex: 0 0 100%;
+    margin: 0;
+
+    color: var(--color-white);
+    font-family: var(--font-title);
+    font-size: var(--font-size-subtitle);
+    line-height: var(--line-height-title);
+}
+
+/* Texto */
+
+main footer p {
+    flex: 0 0 100%;
+    max-width: 760px;
+    margin: 0 0 var(--spacing-small);
+
+    color: var(--color-white);
+    font-family: var(--font-text);
+    font-size: var(--font-size-medium);
+    line-height: var(--line-height-text);
+}
+
+/* Botões e links */
+
+main footer a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    min-height: 44px;
+    padding: var(--spacing-small) var(--spacing-24);
+
+    border: 2px solid transparent;
+    border-radius: var(--radius-pill);
+
+    font-family: var(--font-text);
+    font-weight: var(--font-weight-semibold);
+    text-decoration: none;
+
+    transition:
+        transform var(--transition-fast),
+        background-color var(--transition-fast),
+        color var(--transition-fast);
+}
+
+/* Botão de voluntariado */
+
+main footer a[href="cadastro.html"] {
+    background-color: var(--color-secondary);
+    color: var(--color-text);
+}
+
+/* Botão de ajuda */
+
+main footer #btn-ajudar {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+}
+
+/* Link para a página inicial */
+
+main footer a[href="index.html"] {
+    background-color: transparent;
+    border-color: var(--color-white);
+    color: var(--color-white);
+}
+
+/* Efeitos dos links */
+
+main footer a:hover {
+    transform: translateY(-2px);
+}
+
+main footer a[href="cadastro.html"]:hover {
+    background-color: #ffd166;
+}
+
+main footer #btn-ajudar:hover {
+    background-color: var(--color-accent);
+}
+
+main footer a[href="index.html"]:hover {
+    background-color: var(--color-white);
+    color: var(--color-text);
+}
+
+/* Acessibilidade pelo teclado */
+
+main footer a:focus-visible {
+    outline: 3px solid var(--color-secondary);
+    outline-offset: 3px;
+}
+
+/* Celulares */
+
+@media (max-width: 576px) {
+    main footer {
+        gap: var(--spacing-medium);
+        padding: var(--spacing-large) var(--spacing-medium);
+        border-radius: var(--radius-medium);
+    }
+
+    main footer h2 {
+        font-size: var(--font-size-large);
+    }
+
+    main footer p {
+        font-size: var(--font-size-small);
+    }
+
+    main footer a {
+        width: 100%;
+        max-width: 280px;
+        box-sizing: border-box;
+    }
+}
